@@ -1,0 +1,33 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#8DC2F8</item>
+        <item name="colorPrimaryDark">#4286f4</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NotitleBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#8DC2F8</item>
+        <item name="colorPrimaryDark">#4286f4</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.NotitleBar.Second" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">#8DC2F8</item>
+        <item name="colorPrimaryDark">#4286f4</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+
+
+    <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+</resources>
