@@ -13,6 +13,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import edu.polytech.myapplication.domain.UserInfo;
+
 public class RegisterActivity extends AppCompatActivity {
     final static String TAG = "RegisterActivity";
     String email_id;
@@ -21,6 +23,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     TextInputEditText passwd;
     ImageButton nextActivity;
+    UserInfo userinfo;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,6 +35,9 @@ public class RegisterActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        Intent intent = getIntent();
+        userinfo = (UserInfo) intent.getExtras().getSerializable("userinfo");
+
         passwd = findViewById(R.id.pass_wd);
         nextActivity = findViewById(R.id.Register_Next_Button);
 
@@ -39,6 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                intent.putExtra("userinfo", userinfo);
                 startActivity(intent);
                 finish();
             }

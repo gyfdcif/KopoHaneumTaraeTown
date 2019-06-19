@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import edu.polytech.myapplication.domain.UserInfo;
+
 public class SignupPhoneFragment extends Fragment {
 
     View view;
@@ -37,6 +39,13 @@ public class SignupPhoneFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), RegisterActivity.class);
+                UserInfo userInfo = new UserInfo();
+                userInfo.setEmail("");
+                userInfo.setUserID(phone_id.getText().toString());
+                userInfo.setPhoneNumber(phone_id.getText().toString());
+
+                intent.putExtra("userinfo", userInfo);
+
                 startActivity(intent);
             }
         });
