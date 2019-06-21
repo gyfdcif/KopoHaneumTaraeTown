@@ -67,9 +67,12 @@ public class SigninActivity extends AppCompatActivity {
             public void onClick(View v) {
                 userid = userid_input.getText().toString();
                 userpw = userpw_input.getText().toString();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("UserID", userid);
 
-                SelectUser su = new SelectUser();
-                su.execute();
+                startActivity(intent);
+//                SelectUser su = new SelectUser();
+//                su.execute();
             }
         });
     }
@@ -122,7 +125,7 @@ public class SigninActivity extends AppCompatActivity {
         protected void onPostExecute(String result){
             if(result.equals("loginok")){
                 Toast.makeText(SigninActivity.this, userid + "님 로그인 되었습니다.", Toast.LENGTH_LONG);
-                Intent intent = new Intent(getApplicationContext(), MaintaraeActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 intent.putExtra("UserID", userid);
 
                 startActivity(intent);

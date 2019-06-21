@@ -5,26 +5,38 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity{
-
-    TextView tv;
+    Toolbar mToolbar;
     ImageButton addTaraeButton;
+
+    ListActivity fragment1;
+    StoredActivity fragment2;
+    TopActivity fragment3;
+    ARActivity fragment4;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mToolbar = findViewById(R.id.Signup_Toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        fragment1 = new ListActivity();
+        fragment2 = new StoredActivity();
+        fragment3 = new TopActivity();
+        fragment4 = new ARActivity();
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        tv = (TextView) findViewById(R.id.textView);
         addTaraeButton = (ImageButton)findViewById(R.id.addMainTarae_btn);
         addTaraeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,19 +50,18 @@ public class MainActivity extends AppCompatActivity{
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.navigation_menu1:
-                        tv.setText("1");
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, fragment1).commit();
                         break;
                     case R.id.navigation_menu2:
-                        tv.setText("2");
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, fragment2).commit();
                         break;
                     case R.id.navigation_menu3:
-                        tv.setText("3");
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, fragment3).commit();
                         break;
                     case R.id.navigation_menu4:
-                        tv.setText("4");
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, fragment4).commit();
                         break;
                     case R.id.navigation_menu5:
-                        tv.setText("5");
                         Intent intent = new Intent(getApplicationContext(), MapActivity.class);
                         startActivity(intent);
                         break;

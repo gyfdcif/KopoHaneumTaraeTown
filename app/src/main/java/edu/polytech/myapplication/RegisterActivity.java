@@ -45,6 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                userinfo.setPassword(passwd.getText().toString());
                 intent.putExtra("userinfo", userinfo);
                 startActivity(intent);
                 finish();

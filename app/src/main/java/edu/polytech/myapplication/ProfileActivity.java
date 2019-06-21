@@ -48,7 +48,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         intent = getIntent();
         userinfo = (UserInfo) intent.getExtras().getSerializable("userinfo");
-        userinfo.setAddr("경기도 성남시 분당구 서현동 한국폴리텍대학 융합기술교육원");
         userinfo.setState("A0101");
 
         male = findViewById(R.id.male_button);
@@ -80,6 +79,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 userinfo.setAge(Integer.parseInt(age.getText().toString()));
+                userinfo.setAddr(addr_txt.getText().toString());
                 InsertUser insertUser = new InsertUser();
                 insertUser.execute(userinfo);
             }
@@ -163,17 +163,11 @@ public class ProfileActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
 
-            if(result.equals("1")){
-                Toast.makeText(ProfileActivity.this, "정상적으로 등록됨", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ProfileActivity.this, "정상적으로 등록됨", Toast.LENGTH_SHORT).show();
 
-                Intent intent4 = new Intent(getApplicationContext(), SigninActivity.class);
-                startActivity(intent4);
-
-                finish();
-
-            } else {
-                Toast.makeText(ProfileActivity.this, "등록 불가", Toast.LENGTH_SHORT).show();
-            }
+            Intent intent4 = new Intent(getApplicationContext(), SigninActivity.class);
+            startActivity(intent4);
+            finish();
         }
     }
 }

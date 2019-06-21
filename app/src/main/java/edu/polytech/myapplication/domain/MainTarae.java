@@ -65,4 +65,14 @@ public class MainTarae {
     public void setLikeCOunt(int likeCOunt) {
         this.likeCOunt = likeCOunt;
     }
+
+    public MainTarae(String tarae_Id, String user_Id, String title, String content, String date, int viewCount, int likeCOunt) {
+        Tarae_Id = tarae_Id;
+        this.user_Id = user_Id;
+        Title = title;
+        Content = content;
+        this.date = date;
+        this.viewCount = viewCount;
+        this.likeCOunt = likeCOunt;
+    }
 }

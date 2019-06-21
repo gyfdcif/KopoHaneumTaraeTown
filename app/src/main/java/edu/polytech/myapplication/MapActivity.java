@@ -3,6 +3,8 @@ package edu.polytech.myapplication;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
@@ -40,6 +42,13 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         }
 
         mapFragment.getMapAsync(this);
+        ImageButton backBtn = (ImageButton) findViewById(R.id.back_button_map);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override

@@ -30,7 +30,7 @@ public class SignupActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        signupFragmentAdapter = new SignupFragmentAdapter(getSupportFragmentManager(), 0);
+        signupFragmentAdapter = new SignupFragmentAdapter(getSupportFragmentManager());
         viewPager = findViewById(R.id.Signup_ViewPager);
         viewPager.setAdapter(signupFragmentAdapter);
 
@@ -52,8 +52,8 @@ public class SignupActivity extends AppCompatActivity {
     public class SignupFragmentAdapter extends FragmentPagerAdapter {
         private int PAGE_NUMBER = 2;
 
-        public SignupFragmentAdapter(@NonNull FragmentManager fm, int behavior) {
-            super(fm, behavior);
+        public SignupFragmentAdapter(@NonNull FragmentManager fm) {
+            super(fm);
         }
 
         @NonNull

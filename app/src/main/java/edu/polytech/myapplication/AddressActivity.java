@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -19,7 +20,6 @@ public class AddressActivity extends AppCompatActivity {
     private WebView daum_webView;
     private TextView daum_result;
     private Handler handler;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,11 +66,15 @@ public class AddressActivity extends AppCompatActivity {
         daum_webView.getSettings().setJavaScriptEnabled(true);
         // JavaScript의 window.open 허용
         daum_webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+        daum_webView.setWebViewClient(new WebViewClient());
         daum_webView.setWebChromeClient(new WebChromeClient());
+        daum_webView.getSettings().setUseWideViewPort(true);
+        daum_webView.getSettings().setDomStorageEnabled(true);
+        daum_webView.getSettings().setSupportMultipleWindows(false);
         //밑에부분이 핵심입니다.
         daum_webView.addJavascriptInterface(new AndroidBridge(), "TestApp");
         // webview url load. php 파일 주소
-        daum_webView.loadUrl("http://13.124.54.62/daum.php");
+        daum_webView.loadUrl("http://54.180.118.27/tarae/daum.php");
     }
 
     private class AndroidBridge {

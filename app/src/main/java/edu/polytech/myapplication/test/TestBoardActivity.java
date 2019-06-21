@@ -34,16 +34,16 @@ public class TestBoardActivity extends AppCompatActivity {
         maintaraeList = new ArrayList<MainTarae>();
 
 
-        for (int i = 0; i < 10; i++) {
-            MainTarae mt = new MainTarae();
-
-            mt.setTitle(String.valueOf(i));
-            mt.setContent(String.valueOf(i));
-            mt.setDate(String.valueOf(i));
-            mt.setLikeCOunt(i);
-            mt.setViewCount(i);
-            maintaraeList.add(mt);
-        }
+//        for (int i = 0; i < 10; i++) {
+//            MainTarae mt = new MainTarae();
+//
+//            mt.setTitle(String.valueOf(i));
+//            mt.setContent(String.valueOf(i));
+//            mt.setDate(String.valueOf(i));
+//            mt.setLikeCOunt(i);
+//            mt.setViewCount(i);
+//            maintaraeList.add(mt);
+//        }
 
         mAdapter = new MainTaraeAdapter(maintaraeList);
         recyclerView.setAdapter(mAdapter);
